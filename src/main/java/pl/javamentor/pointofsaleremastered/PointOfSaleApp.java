@@ -4,7 +4,6 @@ import pl.javamentor.pointofsaleremastered.money.domain.model.Money;
 import pl.javamentor.pointofsaleremastered.pointofsale.domain.PointOfSaleFacade;
 import pl.javamentor.pointofsaleremastered.pointofsale.domain.PointOfSaleFacadeConfiguration;
 import pl.javamentor.pointofsaleremastered.pointofsale.domain.ProductsCatalog;
-import pl.javamentor.pointofsaleremastered.pointofsale.domain.ReceiptRepository;
 import pl.javamentor.pointofsaleremastered.pointofsale.domain.model.Product;
 import pl.javamentor.pointofsaleremastered.pointofsale.domain.model.ProductBarcode;
 import pl.javamentor.pointofsaleremastered.pointofsale.domain.model.ProductName;
