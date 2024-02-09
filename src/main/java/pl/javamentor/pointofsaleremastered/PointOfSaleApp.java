@@ -1,19 +1,16 @@
 package pl.javamentor.pointofsaleremastered;
 
 import pl.javamentor.pointofsaleremastered.money.domain.model.Money;
-import pl.javamentor.pointofsaleremastered.pointofsale.domain.PointOfSaleFacade;
-import pl.javamentor.pointofsaleremastered.pointofsale.domain.PointOfSaleFacadeConfiguration;
-import pl.javamentor.pointofsaleremastered.pointofsale.domain.ProductsCatalog;
-import pl.javamentor.pointofsaleremastered.pointofsale.domain.model.Product;
-import pl.javamentor.pointofsaleremastered.pointofsale.domain.model.ProductBarcode;
-import pl.javamentor.pointofsaleremastered.pointofsale.domain.model.ProductName;
-import pl.javamentor.pointofsaleremastered.pointofsale.infrastructure.adapters.console.ConsoleInputOutputHandler;
+import pl.javamentor.pointofsaleremastered.receipt.domain.ReceiptFacade;
+import pl.javamentor.pointofsaleremastered.receipt.domain.ReceiptFacadeConfiguration;
+import pl.javamentor.pointofsaleremastered.receipt.domain.ProductsCatalog;
+import pl.javamentor.pointofsaleremastered.receipt.domain.model.Product;
+import pl.javamentor.pointofsaleremastered.receipt.domain.model.ProductBarcode;
+import pl.javamentor.pointofsaleremastered.receipt.domain.model.ProductName;
+import pl.javamentor.pointofsaleremastered.receipt.infrastructure.adapters.console.ConsoleInputOutputHandler;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
-
-import static java.util.Map.entry;
 
 public class PointOfSaleApp {
 
@@ -22,7 +19,7 @@ public class PointOfSaleApp {
 	}
 
 	private void run() {
-		final PointOfSaleFacade pointOfSaleFacade = new PointOfSaleFacadeConfiguration().pointOfSaleFacade(getProductsCatalog());
+		final ReceiptFacade receiptFacade = new ReceiptFacadeConfiguration().receiptFacade(getProductsCatalog());
 		final ConsoleInputOutputHandler consoleHandler = new ConsoleInputOutputHandler();
 		consoleHandler.registerBarcodeScannedListeners();
 		// TODO
