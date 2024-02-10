@@ -1,4 +1,4 @@
-package pl.javamentor.pointofsaleremastered.receipt.domain.model;
+package pl.javamentor.pointofsaleremastered.product.domain.model;
 
 import lombok.Builder;
 import pl.javamentor.pointofsaleremastered.money.domain.model.Money;

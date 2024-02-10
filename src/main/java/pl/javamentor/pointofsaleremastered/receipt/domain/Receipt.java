@@ -4,7 +4,7 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import pl.javamentor.pointofsaleremastered.money.domain.model.Money;
-import pl.javamentor.pointofsaleremastered.receipt.domain.model.Product;
+import pl.javamentor.pointofsaleremastered.product.domain.model.Product;
 import pl.javamentor.pointofsaleremastered.receipt.domain.model.ProductAddedToReceipt;
 import pl.javamentor.pointofsaleremastered.receipt.domain.model.ReceiptClosed;
 import pl.javamentor.pointofsaleremastered.receipt.domain.model.ReceiptClosed.ProductOnReceipt;
@@ -41,17 +41,17 @@ class Receipt {
 		}
 		products.add(requireNonNull(product));
 		totalSum = totalSum.plus(product.getPrice());
-		return new ProductAddedToReceipt(product.getName().getValue(), product.getPrice().getValue());
+		return new ProductAddedToReceipt(product.getName(), product.getPrice());
 	}
 
 	ReceiptClosed close() {
 		final List<ProductOnReceipt> productsOnReceipt = products.stream().map(this::toProductOnReceipt).toList();
-		final ReceiptClosed receiptClosed = new ReceiptClosed(productsOnReceipt, totalSum.getValue());
+		final ReceiptClosed receiptClosed = new ReceiptClosed(productsOnReceipt, totalSum);
 		closed = true;
 		return receiptClosed;
 	}
 
 	private ProductOnReceipt toProductOnReceipt(final Product product) {
-		return new ProductOnReceipt(product.getName().getValue(), product.getPrice().getValue());
+		return new ProductOnReceipt(product.getName(), product.getPrice());
 	}
 }

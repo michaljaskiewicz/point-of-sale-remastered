@@ -1,8 +1,8 @@
 package pl.javamentor.pointofsaleremastered.receipt.domain;
 
-class ReceiptFacadeAssembler {
+public class ReceiptFacadeAssembler {
 
-	static ReceiptFacade pointOfSaleFacade(final ProductsCatalog productsCatalog) {
+	public static ReceiptFacade receiptFacade(final ProductsCatalog productsCatalog) {
 		return new ReceiptFacadeConfiguration().receiptFacade(productsCatalog, new InMemoryReceiptRepository());
 	}
 

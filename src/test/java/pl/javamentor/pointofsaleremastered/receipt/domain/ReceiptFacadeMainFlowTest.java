@@ -2,10 +2,10 @@ package pl.javamentor.pointofsaleremastered.receipt.domain;
 
 import org.junit.jupiter.api.Test;
 import pl.javamentor.pointofsaleremastered.money.domain.model.Money;
-import pl.javamentor.pointofsaleremastered.receipt.domain.model.Product;
+import pl.javamentor.pointofsaleremastered.product.domain.model.Product;
 import pl.javamentor.pointofsaleremastered.receipt.domain.model.ProductAddedToReceipt;
-import pl.javamentor.pointofsaleremastered.receipt.domain.model.ProductName;
-import pl.javamentor.pointofsaleremastered.receipt.domain.model.ProductSample;
+import pl.javamentor.pointofsaleremastered.product.domain.model.ProductName;
+import pl.javamentor.pointofsaleremastered.product.domain.model.ProductSample;
 import pl.javamentor.pointofsaleremastered.receipt.domain.model.ReceiptClosed;
 import pl.javamentor.pointofsaleremastered.receipt.domain.model.ReceiptClosed.ProductOnReceipt;
 import pl.javamentor.pointofsaleremastered.receipt.domain.model.ReceiptId;
@@ -34,8 +34,8 @@ class ReceiptFacadeMainFlowTest extends ReceiptFacadeTestBase {
 				.productBarcode(productInCatalog.getBarcode()).receiptId(receiptId).build());
 
 		// then
-		assertThat(productAddedToReceipt.getProductName()).isEqualTo("Water bottle 2L");
-		assertThat(productAddedToReceipt.getProductPrice()).isEqualTo("2.99");
+		assertThat(productAddedToReceipt.getProductName().getValue()).isEqualTo("Water bottle 2L");
+		assertThat(productAddedToReceipt.getProductPrice().getValue()).isEqualTo("2.99");
 	}
 
 	@Test
@@ -59,12 +59,12 @@ class ReceiptFacadeMainFlowTest extends ReceiptFacadeTestBase {
 		assertThat(receiptClosed.getProducts())
 				.extracting(ProductOnReceipt::getProductName, ProductOnReceipt::getProductPrice)
 				.containsExactly(
-						tuple(product_1.getName().getValue(), product_1.getPrice().getValue()),
-						tuple(product_1.getName().getValue(), product_1.getPrice().getValue()),
-						tuple(product_2.getName().getValue(), product_2.getPrice().getValue()),
-						tuple(product_3.getName().getValue(), product_3.getPrice().getValue())
+						tuple(product_1.getName(), product_1.getPrice()),
+						tuple(product_1.getName(), product_1.getPrice()),
+						tuple(product_2.getName(), product_2.getPrice()),
+						tuple(product_3.getName(), product_3.getPrice())
 				);
-		assertThat(receiptClosed.getTotalSum()).isEqualTo("92.76");
+		assertThat(receiptClosed.getTotalSum().getValue()).isEqualTo("92.76");
 	}
 
 	@Test
@@ -101,7 +101,7 @@ class ReceiptFacadeMainFlowTest extends ReceiptFacadeTestBase {
 		tut.addProductToReceipt(AddProductToReceiptSample.builder().productBarcode(product_1.getBarcode()).receiptId(previousReceipt).build());
 
 		final ReceiptClosed previousReceiptClosed = tut.closeReceipt(CloseReceiptSample.builder().receiptId(previousReceipt).build());
-		assertThat(previousReceiptClosed.getTotalSum()).isEqualTo("19.98");
+		assertThat(previousReceiptClosed.getTotalSum().getValue()).isEqualTo("19.98");
 
 		// when
 		final ReceiptId newReceipt = tut.openReceipt();
@@ -112,12 +112,12 @@ class ReceiptFacadeMainFlowTest extends ReceiptFacadeTestBase {
 		final ReceiptClosed newReceiptClosed = tut.closeReceipt(CloseReceiptSample.builder().receiptId(newReceipt).build());
 
 		// then
-		assertThat(newReceiptClosed.getTotalSum()).isEqualTo("62.78");
+		assertThat(newReceiptClosed.getTotalSum().getValue()).isEqualTo("62.78");
 		assertThat(newReceiptClosed.getProducts())
 				.extracting(ProductOnReceipt::getProductName, ProductOnReceipt::getProductPrice)
 				.containsExactly(
-						tuple(product_1.getName().getValue(), product_1.getPrice().getValue()),
-						tuple(product_2.getName().getValue(), product_2.getPrice().getValue())
+						tuple(product_1.getName(), product_1.getPrice()),
+						tuple(product_2.getName(), product_2.getPrice())
 				);
 	}
 }

@@ -1,4 +1,6 @@
-package pl.javamentor.pointofsaleremastered.receipt.domain.model;
+package pl.javamentor.pointofsaleremastered.product.domain.model;
+
+import pl.javamentor.pointofsaleremastered.product.domain.model.ProductName;
 
 import java.util.UUID;
 

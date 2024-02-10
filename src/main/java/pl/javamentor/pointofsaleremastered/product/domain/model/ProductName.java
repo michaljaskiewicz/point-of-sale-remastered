@@ -1,4 +1,4 @@
-package pl.javamentor.pointofsaleremastered.receipt.domain.model;
+package pl.javamentor.pointofsaleremastered.product.domain.model;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

@@ -1,7 +1,7 @@
 package pl.javamentor.pointofsaleremastered.receipt.domain;
 
 import lombok.RequiredArgsConstructor;
-import pl.javamentor.pointofsaleremastered.receipt.domain.model.Product;
+import pl.javamentor.pointofsaleremastered.product.domain.model.Product;
 import pl.javamentor.pointofsaleremastered.receipt.domain.model.ProductAddedToReceipt;
 import pl.javamentor.pointofsaleremastered.receipt.domain.model.ReceiptClosed;
 import pl.javamentor.pointofsaleremastered.receipt.domain.model.ReceiptId;

@@ -1,8 +1,8 @@
 package pl.javamentor.pointofsaleremastered.receipt.domain.model.command;
 
 import lombok.Builder;
-import pl.javamentor.pointofsaleremastered.receipt.domain.model.ProductBarcode;
-import pl.javamentor.pointofsaleremastered.receipt.domain.model.ProductBarcodeSample;
+import pl.javamentor.pointofsaleremastered.product.domain.model.ProductBarcode;
+import pl.javamentor.pointofsaleremastered.product.domain.model.ProductBarcodeSample;
 import pl.javamentor.pointofsaleremastered.receipt.domain.model.ReceiptId;
 import pl.javamentor.pointofsaleremastered.receipt.domain.model.ReceiptIdSample;
 

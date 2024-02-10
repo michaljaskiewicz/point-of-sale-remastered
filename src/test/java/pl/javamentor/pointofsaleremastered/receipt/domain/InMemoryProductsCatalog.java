@@ -1,7 +1,7 @@
 package pl.javamentor.pointofsaleremastered.receipt.domain;
 
-import pl.javamentor.pointofsaleremastered.receipt.domain.model.Product;
-import pl.javamentor.pointofsaleremastered.receipt.domain.model.ProductBarcode;
+import pl.javamentor.pointofsaleremastered.product.domain.model.Product;
+import pl.javamentor.pointofsaleremastered.product.domain.model.ProductBarcode;
 
 import java.util.HashMap;
 import java.util.Map;
